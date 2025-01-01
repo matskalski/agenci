@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1E3A5F; /* Dark navy blue */
+            color: white;
+        }
+
+        .tabs {
+            display: flex;
+            background-color: #223B6E; /* Slightly lighter navy blue */
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            border-bottom: 2px solid #3F84E5; /* Separator between tabs */
+        }
+
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px 20px;
+            cursor: pointer;
+            position: relative; /* Needed for the red triangle icon */
+        }
+
+        .tab.active {
+            background-color: #1E3A5F;
+            font-weight: bold;
+            border-bottom: 3px solid #3F84E5; /* Accent blue */
+        }
+
+        .tab .icon {
+            font-size: 30px; /* Red triangle icon size */
+            color: red;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        /* Style for the alert section */
+        .alert-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .alert-header .icon {
+            font-size: 30px; /* Red triangle with exclamation mark */
+            color: red; /* Red triangle icon color */
+        }
+
+        /* Style for the table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #2A4B73;
+        }
+
+        th, td {
+            border: 1px solid #1E3A5F;
+            padding: 10px;
+            text-align: left;
+            position: relative; /* For positioning the icons */
+        }
+
+        th {
+            background-color: #1E3A5F;
+            font-weight: bold;
+            border-left: 2px solid #3F84E5;
+            border-right: 2px solid #3F84E5;
+            border-top: 2px solid #3F84E5; /* Added top border */
+            border-bottom: 2px solid #3F84E5; /* Added full border for headers */
+        }
+
+        td {
+            color: white;
+        }
+
+        /* Special style for the alert icon */
+        .alert-icon {
+            font-size: 30px; /* Red triangle with exclamation mark */
+            color: red;
+        }
+
+        /* Bold the text of the first alert */
+        .bold-text {
+            font-weight: bold;
+        }
+
+        /* Hover effect for clickable rows */
+        tr:hover {
+            background-color: #3F84E5;
+            cursor: pointer;
+        }
+
+        /* Style for the search icon in the column headers */
+        .search-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #3F84E5;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <div class="tab">Raporty</div>
+        <div class="tab">Ustawienia</div>
+        <div class="tab active">
+            Alerty
+            <span class="icon">&#9888;</span> <!-- Red triangle with exclamation mark -->
+        </div>
+    </div>
+    <div class="content">
+        <!-- Alerty section -->
+        <div class="alert-header">
+            <div class="icon">&#9888;</div> <!-- Red triangle with exclamation mark -->
+            <h1>Alerty</h1>
+        </div>
+
+        <!-- Table for alerts -->
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Treść
+                        <span class="search-icon">&#128269;</span> <!-- Magnifying glass icon -->
+                    </th>
+                    <th>
+                        Data
+                        <span class="search-icon">&#128269;</span> <!-- Magnifying glass icon -->
+                    </th>
+                    <th>
+                        Status
+                        <span class="search-icon">&#128269;</span> <!-- Magnifying glass icon -->
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- First alert (the newest one) with a warning icon and bold text -->
+                <tr>
+                    <td class="bold-text">Nie udało się pobrać danych do raportu</td>
+                    <td class="bold-text">2024-12-31</td> <!-- Pogrubiona data -->
+                    <td><span class="alert-icon">&#9888;</span></td> <!-- Red triangle with exclamation mark -->
+                </tr>
+                <!-- Second alert (6 months ago) -->
+                <tr>
+                    <td>Agent do analizy danych nie jest dostępny</td>
+                    <td>2024-06-30</td>
+                    <td></td> <!-- No icon for this one -->
+                </tr>
+                <!-- Third alert (12 months ago) -->
+                <tr>
+                    <td>Nie można wykonać raportu na podstawie podanego promptu</td>
+                    <td>2023-12-31</td>
+                    <td></td> <!-- No icon for this one -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

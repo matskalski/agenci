@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1E3A5F; /* Dark navy blue */
+            color: white;
+        }
+
+        .tabs {
+            display: flex;
+            background-color: #223B6E; /* Slightly lighter navy blue */
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            border-bottom: 2px solid #3F84E5; /* Separator between tabs */
+        }
+
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .tab.active {
+            background-color: #1E3A5F;
+            font-weight: bold;
+            border-bottom: 3px solid #3F84E5; /* Accent blue */
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        /* Style for the settings section */
+        .settings-tiles {
+            display: flex;
+            justify-content: center;  /* Horizontally center the tiles */
+            align-items: center;      /* Vertically center the tiles */
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;          /* Allow wrapping of tiles if the screen is too small */
+        }
+
+        .tile {
+            background-color: #2A4B73;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: 1px solid #1E3A5F;
+            width: 200px; /* Fixed width for the square tile */
+            height: 200px; /* Fixed height for the square tile */
+            margin-left: 15px;  /* Equal left and right margin */
+            margin-right: 15px; /* Equal left and right margin */
+        }
+
+        .tile:hover {
+            background-color: #3F84E5;
+        }
+
+        /* Text inside the tile */
+        .tile .text {
+            font-size: 18px;
+            color: white;
+            margin-bottom: 10px; /* Space between text and icon */
+            text-align: center; /* Center-align the text */
+        }
+
+        /* Icon inside the tile */
+        .tile .icon {
+            font-size: 60px; /* Increased icon size */
+            color: white;
+        }
+
+        .footer {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #3F84E5;
+            border-radius: 5px;
+            background-color: #2A4B73;
+            color: white;
+        }
+
+        .footer button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3F84E5;
+            color: white;
+            cursor: pointer;
+        }
+
+        .footer button:hover {
+            background-color: #5FA0FF;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <div class="tab">Raporty</div>
+        <div class="tab active">Ustawienia</div>
+        <div class="tab">Alerty</div>
+    </div>
+    <div class="content">
+        <h1>Ustawienia</h1>
+        <div class="settings-tiles">
+            <!-- Tile 1: Uprawnienia dla użytkowników (New Icon) -->
+            <div class="tile">
+                <div class="text">Uprawnienia dla użytkowników</div>
+                <div class="icon">&#128274;</div> <!-- New icon: Lock icon -->
+            </div>
+
+            <!-- Tile 2: Ustawienia systemowe -->
+            <div class="tile">
+                <div class="text">Ustawienia systemowe</div>
+                <div class="icon">&#9881;</div> <!-- Gear icon -->
+            </div>
+
+            <!-- Tile 3: Ustawienia personalne (Icon from Tile 1) -->
+            <div class="tile">
+                <div class="text">Ustawienia personalne</div>
+                <div class="icon">&#128100;</div> <!-- User icon from Tile 1 -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
